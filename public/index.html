@@ -30,7 +30,7 @@
     <section class="ui-content page-content content-hp">
       <section class="container list-feed">
         <section class="row">
-          <a class="twitter-timeline" data-theme="light" data-chrome="noheader nofooter noborder transparent" data-tweet-limit="4" href="https://twitter.com/hashtag/texastabletennis" data-widget-id="502757717354627073" >#texastabletennis</a>
+          <a class="twitter-timeline" data-theme="light" data-chrome="noheader noborder transparent" data-tweet-limit="4" href="https://twitter.com/hashtag/texastabletennis" data-widget-id="502757717354627073" >#texastabletennis</a>
         </section>
         <hr />
         <section class="row">
@@ -95,13 +95,16 @@ var addEvent = function(item) {
       var eh = e.getHours();
       var dampm = (dh >= 12) ? "PM" : "AM";
       var eampm = (eh >= 12) ? "PM" : "AM";
+      var timestring = dh + ' ' + dampm + ' - ' + eh + ' ' + eampm;
+      if ( item.gd$when[0].startTime.indexOf(':') == -1 ) {
+        timestring = "All Day";
+      }
       var title = item.title.$t;
       var loc = item.gd$where[0].valueString;
-      if (loc === null) {
-        loc = "RSC 2.112"
+      if (loc == "") {
+        loc = "TBD";
       }
-      var section = '<section class="addthisevent"><div class="date"><span class="mon">' + ((timeFrame < 7) ? dayNames[d.getDay() - 1] : monthNames[d.getMonth() - 1]) + '</span><span class="day">' + d.getDate() + '</span><div class="bdr1"></div><div class="bdr2"></div></div><div class="desc"><p><strong class="hed">' + title + '</strong><span class="des">Location: ' + loc + '<br />When: ' + dh + ' ' + dampm + ' - ' + eh + ' ' + eampm + '</ span></p></div></section>';
-      console.log(dayNames[d.getDay() - 1]);
+      var section = '<section class="addthisevent"><div class="date"><span class="mon">' + ((timeFrame < 7) ? dayNames[d.getDay() - 1] : monthNames[d.getMonth() - 1]) + '</span><span class="day">' + d.getDate() + '</span><div class="bdr1"></div><div class="bdr2"></div></div><div class="desc"><p><strong class="hed">' + title + '</strong><span class="des">Location: ' + loc + '<br />When: ' + timestring + '</ span></p></div></section>';
       $('#eventDiv').append(section);
     }
 $(function(){
