@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Texas Table Tennis</title>
+  <link rel="stylesheet" type="text/css" href="css/style.min.css">
+</head>
+<body>
+  <div class="wrapper">
+    <section class="page-header header-hp">
+      <h1>Texas Table Tennis</h1>
+      <p><b>\m/</b></p>
+      <div class="mc-embedded-subscribe-form">
+        <!-- Begin MailChimp Signup Form -->
+        <div id="mc_embed_signup">
+          <form
+            action="//texastabletennis.us9.list-manage.com/subscribe/post?u=da93092a46e7db1d2f2b0ddbb&amp;id=74a572443a"
+            method="post" id="mc-embedded-subscribe-form" target="_blank"
+            name="mc-embedded-subscribe-form" class="validate" novalidate>
+            <div>
+              <input type="email" name="EMAIL" class="email" placeholder="What's your email address?" required="">
+              <input type="submit" value="Subscribe!" name="subscribe" class="button">
+              <p>We hate spam, so we won't bother you with that.</p>
+            </div>
+          </form>
+        </div>
+        <!--End mc_embed_signup-->
+      </div>
+      <img src="img/main_small.png" width="100%">
+    </section>
+    <section class="ui-content page-content content-hp">
+      <section class="container list-feed">
+        <section class="row">
+          <a class="twitter-timeline" data-theme="light" data-chrome="noheader nofooter noborder transparent" data-tweet-limit="4" href="https://twitter.com/hellovai" data-widget-id="502757717354627073" >Tweets</a>
+        </section>
+        <hr />
+        <section class="row">
+          <div id="instafeed"></div>
+        </section>
+      </section>
+    </section>
+
+    <section class="page-footer footer-hp">
+      <h2>Get in touch!</h2><hr />
+      <a href="mailto:contact@gmail.com">contact@gmail.com</a><hr /><a href="tel:123-456-7890">123-426-7890</a><hr />
+      <div id="eventDiv">
+        <iframe src="https://www.google.com/calendar/embed?mode=AGENDA&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=texastabletennis%40gmail.com&amp;color=%23182C57&amp;ctz=America%2FChicago" style="border-width:0;min-height:350px;width:80%" frameborder="0" scrolling="no"></iframe>
+      </div>
+    </section>
+  </div>
+
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  <script type="text/javascript" src="js/instafeed.min.js"></script>
+  <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type='text/javascript' src="http://evbdn.eventbrite.com/s3-s3/static/js/platform/Eventbrite.jquery.js"></script>
+  <script type="text/javascript">
+    var loadButton = document.getElementById('load-more');
+    var feed = new Instafeed({
+      get: 'tagged',
+      tagName: 'tabletennis',
+      clientId: 'a729ad57867c4c4aa492452989bd46de',
+      template: '<a href="instagram://{{id}}"><img class="insta-border" src="{{image}}" /></a>',
+      limit: 6,
+    });
+    feed.run();
+  </script>
+
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>
