@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Texas Table Tennis</title>
-  <link rel="stylesheet" type="text/css" href="css/style.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
   <div class="wrapper">
@@ -25,12 +25,12 @@
         </div>
         <!--End mc_embed_signup-->
       </div>
-      <img src="img/main_small.png" width="100%">
+      <!-- <img src="img/main_small.png" width="100%"> -->
     </section>
     <section class="ui-content page-content content-hp">
       <section class="container list-feed">
         <section class="row">
-          <a class="twitter-timeline" data-theme="light" data-chrome="noheader nofooter noborder transparent" data-tweet-limit="4" href="https://twitter.com/hashtag/texastabletennis" data-widget-id="502757717354627073" >Tweets</a>
+          <a class="twitter-timeline" data-theme="light" data-chrome="noheader nofooter noborder transparent" data-tweet-limit="4" href="https://twitter.com/hashtag/texastabletennis" data-widget-id="502757717354627073" >#texastabletennis</a>
         </section>
         <hr />
         <section class="row">
@@ -42,9 +42,7 @@
     <section class="page-footer footer-hp">
       <h2>Get in touch!</h2><hr />
       <a href="mailto:contact@gmail.com">contact@gmail.com</a><hr /><a href="tel:123-456-7890">123-426-7890</a><hr />
-      <div id="eventDiv">
-        <iframe src="https://www.google.com/calendar/embed?mode=AGENDA&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=texastabletennis%40gmail.com&amp;color=%23182C57&amp;ctz=America%2FChicago" style="border-width:0;min-height:350px;width:80%" frameborder="0" scrolling="no"></iframe>
-      </div>
+      <div id="eventDiv"></div>
     </section>
   </div>
 
@@ -52,8 +50,15 @@
   <script type="text/javascript" src="js/instafeed.min.js"></script>
   <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script type='text/javascript' src="http://evbdn.eventbrite.com/s3-s3/static/js/platform/Eventbrite.jquery.js"></script>
+
+
+  <!-- AddThisEvent -->
+  <script type="text/javascript" src="https://addthisevent.com/libs/ate-latest.min.js"></script>
+
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
   <script type="text/javascript">
-    var loadButton = document.getElementById('load-more');
     var feed = new Instafeed({
       get: 'tagged',
       tagName: 'texastabletennis',
@@ -62,13 +67,52 @@
       limit: 6,
     });
     feed.run();
+
+    addthisevent.settings({
+      mouse   : false,
+      css     : false,
+      google    : {show:true, text:"Google"},
+      ical    : {show:true, text:"iCal"},
+      outlook   : {show:false, text:"Outlook Calendar"},
+      yahoo   : {show:false, text:"Yahoo Calendar"},
+      hotmail   : {show:false, text:"Hotmail Calendar"},
+      facebook  : {show:true, text:"Facebook Calendar"}
+    });
   </script>
 
 
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<!-- AddThisEvent Settings -->
+<script type="text/javascript">
+var monthNames = [ "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" ];
+var dayNames = [ "MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN" ];
+var today = new Date();
+var aday = 24*60*60*1000;
+var addEvent = function(item) {
+      var d = new Date(item.gd$when[0].startTime);
+      var e = new Date(item.gd$when[0].endTime);
+      var timeFrame = Math.abs((d.getTime() - today.getTime())/aday);
+      var dh = d.getHours();
+      var eh = e.getHours();
+      var dampm = (dh >= 12) ? "PM" : "AM";
+      var eampm = (eh >= 12) ? "PM" : "AM";
+      var title = item.title.$t;
+      var loc = item.gd$where[0].valueString;
+      if (loc === null) {
+        loc = "RSC 2.112"
+      }
+      var section = '<section class="addthisevent"><div class="date"><span class="mon">' + ((timeFrame < 7) ? dayNames[d.getDay() - 1] : monthNames[d.getMonth() - 1]) + '</span><span class="day">' + d.getDate() + '</span><div class="bdr1"></div><div class="bdr2"></div></div><div class="desc"><p><strong class="hed">' + title + '</strong><span class="des">Location: ' + loc + '<br />When: ' + dh + ' ' + dampm + ' - ' + eh + ' ' + eampm + '</ span></p></div></section>';
+      console.log(dayNames[d.getDay() - 1]);
+      $('#eventDiv').append(section);
+    }
+$(function(){
+  $.getJSON("https://www.google.com/calendar/feeds/texastabletennis%40gmail.com/public/full?orderby=starttime&sortorder=ascending&futureevents=true&alt=json", function(data) {
+      var array = data.feed.entry;
+      for( i = 0; i < array.length && i < 3; i++ ){
+        addEvent(array[i]);
+      }
+  });
+});
+</script>
 
 </body>
 </html>
