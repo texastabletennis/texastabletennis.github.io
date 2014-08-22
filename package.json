@@ -1,3 +1,25 @@
 {
-
+  "name": "texas-table-tennis",
+  "version": "0.0.0",
+  "description": "This example app is so cool.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hellovai/texastabletennis.git"
+  },
+  "keywords": [
+    "personal",
+    "heroku"
+  ],
+  "dependencies": {
+    "express": ">= 1.2.0"
+  },
+  "author": "hellovai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hellovai/texastabletennis/issues"
+  }
 }
