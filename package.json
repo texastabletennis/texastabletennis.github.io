@@ -21,5 +21,8 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/hellovai/texastabletennis/issues"
+  },
+  "engines": {
+    "node": "0.10.x"
   }
 }
