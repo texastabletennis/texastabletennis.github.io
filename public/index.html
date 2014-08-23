@@ -95,7 +95,7 @@ var addEvent = function(item) {
       var eh = e.getHours();
       var dampm = (dh >= 12) ? "PM" : "AM";
       var eampm = (eh >= 12) ? "PM" : "AM";
-      var timestring = dh + ' ' + dampm + ' - ' + eh + ' ' + eampm;
+      var timestring = dh % 12 + ' ' + dampm + ' - ' + eh % 12 + ' ' + eampm;
       if ( item.gd$when[0].startTime.indexOf(':') == -1 ) {
         timestring = "All Day";
       }
