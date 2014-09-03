@@ -26,6 +26,9 @@
         <!--End mc_embed_signup-->
       </div>
       <!-- <img src="img/main_small.png" width="100%"> -->
+      <div>
+        <p><a href="https://www.facebook.com/groups/2204150588/">Facebook Group</a></p>
+      </div>
     </section>
     <section class="ui-content page-content content-hp">
       <section class="container list-feed">
@@ -41,7 +44,7 @@
 
     <section class="page-footer footer-hp">
       <h2>Get in touch!</h2><hr />
-      <a href="mailto:contact@gmail.com">contact@gmail.com</a><hr /><a href="tel:123-456-7890">123-426-7890</a><hr />
+      <a href="mailto:texastabletennis@gmail.com">texastabletennis@gmail.com</a><br /><hr /><a href="tel:972-400-5279">972-400-5279</a><hr />
       <div id="eventDiv"></div>
     </section>
   </div>
@@ -105,7 +108,7 @@ var addEvent = function(item) {
         loc = "TBD";
       }
       var section = '<section class="addthisevent"><div class="date"><span class="mon">' + ((timeFrame < 7) ? dayNames[d.getDay() - 1] : monthNames[d.getMonth() - 1]) + '</span><span class="day">' + d.getDate() + '</span><div class="bdr1"></div><div class="bdr2"></div></div><div class="desc"><p><strong class="hed">' + title + '</strong><span class="des">Location: ' + loc + '<br />When: ' + timestring + '</ span></p></div></section>';
-      $('#eventDiv').append(section);
+      $('#eventDiv').append(section + "<br />");
     }
 $(function(){
   $.getJSON("https://www.google.com/calendar/feeds/texastabletennis%40gmail.com/public/full?orderby=starttime&sortorder=ascending&futureevents=true&alt=json", function(data) {
